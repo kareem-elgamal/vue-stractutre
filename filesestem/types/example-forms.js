@@ -9,7 +9,7 @@ const componentCode = () =>
 </div>
 </template>
 
-<script setup lant="ts">
+<script setup lang="ts">
 </script>
 
 <style scoped>
@@ -46,7 +46,7 @@ export default [
   {
     path: "",
     component: () => import("./layout/index.vue"),
-    name: "Home",
+    // name: "layoutName",
     // children:[
     //     {
     //         path: "",

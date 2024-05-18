@@ -4,7 +4,7 @@
 </div>
 </template>
 
-<script setup lant="ts">
+<script setup lang="ts">
 </script>
 
 <style scoped>

@@ -5,7 +5,7 @@ export default [
   {
     path: "",
     component: () => import("./layout/index.vue"),
-    name: "Home",
+    // name: "layoutName",
     // children:[
     //     {
     //         path: "",

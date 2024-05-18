@@ -2,7 +2,6 @@ import fs from 'fs';
 import Path from 'path';
 import { stucture } from "./input/index.js"
 import { createVueFile } from "./midelware/check-type.js"
-// import { crateChildeModules } from "./methods/childeModules.js"
 
 /**
   * method create fils .
@@ -62,12 +61,8 @@ function createVueProject(strList, path) {
     if (strList[i].children) {
       fs.mkdirSync(`${strList[i].name}/modules`); // Create a module directory
       createVueProject(strList[i].children, `${strList[i].name}/modules`);
-      process.chdir("../../");
+      process.chdir("../../"); // back to parent path
     }
-
-    const componentFilePath = Path.join(viewsDir, 'components/index.vue');
-    createVueFile(componentFilePath, "components");
-
   }
   console.log('Project created successfully with the custom file structure!');
   // console.log(stucture);
