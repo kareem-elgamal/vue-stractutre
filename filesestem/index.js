@@ -2,7 +2,7 @@ import fs from 'fs';
 import Path from 'path';
 import { stucture } from "./input/index.js"
 import { createVueFile } from "./midelware/check-type.js"
-import { crateChildeModules } from "./methods/childeModules.js"
+// import { crateChildeModules } from "./methods/childeModules.js"
 
 /**
   * method create fils .
@@ -61,8 +61,8 @@ function createVueProject(strList, path) {
     ////////////////////////
     if (strList[i].children) {
       fs.mkdirSync(`${strList[i].name}/modules`); // Create a module directory
-      crateChildeModules(strList[i].children, path, `${strList[i].name}/modules`);
-
+      createVueProject(strList[i].children, `${strList[i].name}/modules`);
+      process.chdir("../../");
     }
 
     const componentFilePath = Path.join(viewsDir, 'components/index.vue');
