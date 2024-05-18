@@ -28,7 +28,7 @@ export const stucture = [
         children: [
             {
                 name: "children1",
-                path: "../src/modules/home/pages/folder2",
+                path: "../src/modules/home/folder2/modules",
                 store: false,
                 layout: true,
                 components: ["components1", "components2"],
@@ -37,7 +37,7 @@ export const stucture = [
             },
             {
                 name: "children2",
-                path: "../src/modules/home/pages/folder2",
+                path: "../src/modules/home/folder2/modules",
                 store: false,
                 layout: true,
                 components: ["components1", "components2"],
@@ -45,7 +45,7 @@ export const stucture = [
                 children: [
                     {
                         name: "children1",
-                        path: "../src/modules/home/pages/folder2",
+                        path: "../src/modules/home/folder2/modules/children2/modules",
                         store: false,
                         layout: true,
                         components: ["components1", "components2"],
@@ -54,7 +54,7 @@ export const stucture = [
                     },
                     {
                         name: "children2",
-                        path: "../src/modules/home/pages/folder2",
+                        path: "../src/modules/folder2/modules/children2/modules",
                         store: false,
                         layout: true,
                         components: ["components1", "components2"],
@@ -64,5 +64,33 @@ export const stucture = [
                 ],
             }
         ],
+    },
+    {
+        name: "services",
+        path: "../src/modules/",
+        store: true,
+        layout: true,
+        components: ["components1", "components2"],
+        page: ["index"],
+        children: [
+            {
+                name: "manage-services",
+                path: "../src/modules/services/modules",
+                store: false,
+                layout: false,
+                components: ["components1", "components2"],
+                page: ["index"],
+                children: null
+            },
+            {
+                name: "form-templates",
+                path: "../src/modules/services/modules",
+                store: false,
+                layout: false,
+                components: ["components1", "components2"],
+                page: ["index"],
+                children: null
+            },
+        ]
     },
 ]

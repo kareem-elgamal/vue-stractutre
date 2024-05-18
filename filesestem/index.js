@@ -2,6 +2,7 @@ import fs from 'fs';
 import Path from 'path';
 import { stucture } from "./input/index.js"
 import { createVueFile } from "./midelware/check-type.js"
+import { crateChildeModules } from "./methods/childeModules.js"
 
 /**
   * method create fils .
@@ -12,9 +13,9 @@ function createVueProject(strList, path) {
   /////////////////////////////////////////////
   // // : Move into the project directory
   /////////////////////////////////////////////
-  process.chdir(path);
   /////////////////////////////////////////////
   // /////////////////////////////////////////
+  process.chdir(path);
   for (let i = 0; i < strList.length; i++) {
     fs.mkdirSync(`${strList[i].name}`); // Create a directory 
     fs.mkdirSync(`${strList[i].name}/components`); // Create a components directory inside module
@@ -59,8 +60,9 @@ function createVueProject(strList, path) {
     // check if has children
     ////////////////////////
     if (strList[i].children) {
-      fs.mkdirSync(`${strList[i].name}/module`); // Create a module directory
-      createVueProject(strList[i].children, `${strList[i].name}/module`);
+      fs.mkdirSync(`${strList[i].name}/modules`); // Create a module directory
+      crateChildeModules(strList[i].children, path, `${strList[i].name}/modules`);
+
     }
 
     const componentFilePath = Path.join(viewsDir, 'components/index.vue');
@@ -73,4 +75,4 @@ function createVueProject(strList, path) {
 }
 
 // start 
-createVueProject(stucture, "../src/modules/home/pages");
+createVueProject(stucture, "../src/modules");

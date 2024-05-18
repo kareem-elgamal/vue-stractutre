@@ -14,7 +14,7 @@ const handelTypeOfFile = (path, type, context, name) => {
             return;
         }
 
-        console.log(`${type} => ${name}.vue created successfully!`);
+        console.log(`${type} => ${name}.vue created successfully! in ${path}`);
     });
     return createfile
 }
