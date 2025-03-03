@@ -1,39 +1,41 @@
+
 import * as VueRouter from "vue-router";
+import guards from "./guards";
 
-import ProtectedRouter from "@/router/ProtectedRouter";
+  const routes: [
+     
+        {
+          path: "dashboard",
+          component:()=> import ("@/modules/dashboard/layout/index.vue"),
+          name: "dashboard",
+          
+          }
+          ,
+        {
+          path: "category",
+          component:()=> import ("@/modules/category/layout/index.vue"),
+          name: "category",
+          
+          }
+          ,
+        {
+          path: "services",
+          component:()=> import ("@/modules/services/layout/index.vue"),
+          name: "services",
+          
+          }
+          
+  ]
 
-import { AuthLayout, RootLayout, NotFountLayout } from "@/layouts";
-
-import authRoutes from "@/modules/auth/index.routes";
-
-import homeRoutes from "@/modules/home/index.routes";
+  const validRoutes = routes.filter((route): route is VueRouter.RouteRecordRaw => route !== undefined);
 
 const router = VueRouter.createRouter({
-  history: VueRouter.createWebHistory(import.meta.env.BASE_URL),
   scrollBehavior: () => {
     return { x: 0, y: 0, behavior: "smooth" };
   },
-  routes: [
-    {
-      path: "/:pathMatch(.*)*",
-      component: NotFountLayout,
-      name: "NotFountLayout",
-    },
-    {
-      path: "/",
-      component: RootLayout,
-      children: homeRoutes,
-      // name: "RootLayout",
-    },
-    {
-      path: "/auth",
-      component: AuthLayout,
-      children: authRoutes,
-      // name: "AuthLayout",
-    },
-  ],
+routes: validRoutes,
 });
 
-ProtectedRouter(router);
+guards(router);
 
 export default router;

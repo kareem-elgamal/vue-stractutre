@@ -1,12 +1,7 @@
 
-<template>
-<div>
-</div>
-</template>
-
-<script setup lang="ts">
-</script>
-
-<style scoped>
-/* Add your component styles here */
-</style>
+  <template>
+    <div class="">index page</div>
+  </template>
+  <script lang="ts"setup>
+  </script>
+  

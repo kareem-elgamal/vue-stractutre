@@ -1,5 +1,6 @@
 
-import { defineStore } from "pinia";
-const useServicesStore = defineStore("servicesStore", () => {});
-export default useServicesStore;
-
+  import { defineStore } from "pinia";
+  const useservicesStore = defineStore("servicesStore", () => {});
+  export default useservicesStore;
+  
+  

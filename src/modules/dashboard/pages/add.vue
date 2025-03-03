@@ -1,6 +1,6 @@
 
   <template>
-    <div class="">index page</div>
+    <div class="">add page</div>
   </template>
   <script lang="ts"setup>
   </script>
