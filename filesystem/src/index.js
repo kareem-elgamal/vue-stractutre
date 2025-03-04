@@ -8,7 +8,8 @@ import { checkModulesDir } from './midelware/checkModuleDir.js';
 // 
 // congigs
 const args = process.argv.slice(2);
-let path = args[0] ? args[0] : './src'
+let path = args[0] && !args[0].includes('-i18n')  ? args[0] : './src';
+let i18n_config = args.includes('-i18n')
 //////////////////////////////////////
 /**
   * method create fils .
@@ -20,7 +21,7 @@ let path = args[0] ? args[0] : './src'
   // check modules dir is found, if not found will create dir for modules
   if (createdConfig) {
     checkModulesDir(path);
-    generateCongigs(strList)
+    generateCongigs(strList ,i18n_config );
     createdConfig = false
   }
   //  create cofig (i18n , router & guards)
@@ -61,10 +62,10 @@ let path = args[0] ? args[0] : './src'
       const componentFilePath = Path.join(viewsDir, 'layout/index.vue');
       createVueFile(componentFilePath, "layout", strList[i].name);
     }
-    if(strList[i].layout || strList[i].children ||strList[i].children){
+    // if(strList[i].layout || strList[i].children || strList[i].page ){
       const roterFilePath = Path.join(viewsDir, 'routes.tsx');
       createVueFile(roterFilePath, "route", `${strList[i].name}` , strList[i]);
-    }
+    // }
     ///////////////////////////////////////////////////////////////////////////////
     // check if has store (pina) note: in future => user will chooise pinia or vuex
     ///////////////////////////////////////////////////////////////////////////////
