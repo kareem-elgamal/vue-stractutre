@@ -1,4 +1,4 @@
-import { storeCode, layoutCode, componentCode, routerCode, PageCode, i18nCode, i18nConf, routeConfigCode, protectRouter } from "../types/example-forms.js"
+import { storeCode, layoutCode, componentCode, routerCode, PageCode, i18nCode, i18nConf, routeConfigCode, protectRouter , schema } from "../types/example-forms.js"
 import { handelTypeOfFile } from "../methods/write-file.js"
 /**
   * chech of type of module .
@@ -32,6 +32,9 @@ export function createVueFile(path, type, fileName, mudules) {
             break;
         case "i18n":
             handelTypeOfFile(path, type, i18nCode, fileName);
+            break;
+        case "schema":
+            handelTypeOfFile(path, type, schema, fileName);
             break;
         case "i18n_conf":
             handelTypeOfFile(path, type, i18nConf, fileName);

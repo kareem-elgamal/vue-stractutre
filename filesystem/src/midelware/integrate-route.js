@@ -25,7 +25,7 @@ export const  integrateRoute = (name, filePath) => {
         const cutPath = filePath.replace(/^.*\/src\//, 'src/');
         
         // const currentRoute = cutPath ? cutPath[1] : filePath;
-        console.log(filePath);
+        // console.log(filePath);
         const parentroutePath = findParentRouterFile(Path.join(Path.dirname(filePath) , "..")  );
         
         if (!parentroutePath) {

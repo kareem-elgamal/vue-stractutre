@@ -1,6 +1,7 @@
 import fs from 'fs';
 import Path from 'path';
-import { stucture } from "./input/index.js"
+import { fileURLToPath } from 'url';
+// import  schema  from "../../../moduels-schema/schema.js"
 import { createVueFile } from "./midelware/check-type.js"
 import { generateCongigs } from './midelware/generateConfigs.js';
 import { checkModulesDir } from './midelware/checkModuleDir.js';
@@ -80,13 +81,11 @@ let i18n_config = args.includes('-i18n')
     if (strList[i].children) {
       fs.mkdirSync(`${strList[i].name}/modules`); // Create a module directory
       createVueProject(strList[i].children, `${strList[i].name}`);
-      // setTimeout(() => {
+        // setTimeout(() => {
         // console.log("viewsDir>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" ,viewsDir);
         // integrateRoute(strList[i].name,`${viewsDir}`);
-      // }, 1000);
-
+        // }, 1000);
         // integrateRoute(strList[i].name,viewsDir);
-  
       process.chdir("../../"); // back to parent path
     }
   }
@@ -94,7 +93,38 @@ let i18n_config = args.includes('-i18n')
   // console.log(stucture);
 
 }
+// ------------------------------------
+// Dynamic import (optional schema.js)
+// ------------------------------------
+// let schema;
 
-// start 
+// try {
+//   schema = (await import(new URL("../../schema.js", import.meta.url).href)).default;
+//   createVueProject(schema, path);
+// } catch (err) {
+//   console.warn("⚠️ schema.js not found. Please add the file manually in '../../schema.js'.");
+// }
+// // start 
 
-createVueProject(stucture, path);
+//     if (fs.existsSync(schema)) {
+//       createVueProject(schema, path);
+//     } 
+// const __filename = fileURLToPath(import.meta.url); // Get the current file path
+// const __dirname = Path.dirname(__filename); // Get the directory name
+
+let schema;
+    // const srcPath = Path.join(process.cwd(), initpath);
+    // const modulesPath = Path.join(srcPath, 'modules')
+const schemaPath = Path.join(process.cwd(), "schema.js");
+
+if (fs.existsSync(schemaPath)) {
+  try {
+    schema = (await import(schemaPath)).default;
+    createVueProject(schema, path);
+  } catch (err) {
+    console.error("❌ Error importing schema.js:", err);
+  }
+} else {
+  console.log("schemaPath => ", schemaPath);
+  console.warn("⚠️ schema.js not found. Please add the file manually schema.js in root directory.");
+}

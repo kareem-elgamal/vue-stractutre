@@ -1,63 +1,55 @@
 
 // Type Stracture {
 //     name: String;
-//     path: String;
 //     store: Boolean;
-//     layout: Boolean;
 //     components: string[] ; 
 //     page: string[] ;
 //     children: string[] | null ; 
 // }folder1
-export const stucture = [
+export const schema = [
     {
-        name: "dashboard", // name of directory
-        path: "../src/modules/dashboard/pages",// not required but posiple will use it in future
+        name: "dashboard", // name of module
         store: true, // is module has store (pinia)
-        layout: false, // is has layout (note : is true (has a layout) dynamicly will extract route file for direcctory )
         i18n: false, // is has i18n 
-        components: ["components1", "components2"], // components name for module 
+        components: ["component-1", "component-2"], // components name for module 
         page: ["index", 'add'], // pages name 
         children: null // is has children 
     },
     {
         name: "category",
-        path: "../src/modules/category/pages",
         store: false,
-        layout: true,
         components: ["components1", "components2"],
         page: ["index"],
         children: [
             {
                 name: "children1",
-                path: "../src/modules/home/folder2/modules",
                 store: false,
                 layout: true,
                 components: ["components1", "components2"],
                 page: ["index"],
+                i18n:true,
                 children: null
             },
             {
                 name: "children2",
-                path: "../src/modules/home/folder2/modules",
                 store: false,
+                i18n:false,
                 layout: true,
                 components: ["components1", "components2"],
                 page: ["index"],
                 children: [
                     {
                         name: "children1",
-                        path: "../src/modules/home/folder2/modules/children2/modules",
                         store: false,
-                        layout: true,
+                        i18n:true,
                         components: ["components1", "components2"],
                         page: ["index"],
                         children: null
                     },
                     {
                         name: "children2",
-                        path: "../src/modules/folder2/modules/children2/modules",
                         store: false,
-                        layout: true,
+                        i18n:true,
                         components: ["components1", "components2"],
                         page: ["index"],
                         children: null
@@ -68,26 +60,21 @@ export const stucture = [
     },
     {
         name: "services",
-        path: "../src/modules/",
         store: true,
-        layout: true,
+        i18n:true,
         components: ["components1", "components2"],
         page: ["index"],
         children: [
             {
                 name: "manage-services",
-                path: "../src/modules/services/modules",
                 store: false,
-                layout: false,
                 components: ["components1", "components2"],
                 page: ["index"],
                 children: null
             },
             {
                 name: "form-templates",
-                path: "../src/modules/services/modules",
                 store: false,
-                layout: false,
                 components: ["components1", "components2"],
                 page: ["index"],
                 children: null

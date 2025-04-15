@@ -21,8 +21,6 @@ export const routerCode = (name, path, modules) => {
 
   return `
   import { RouteRecordRaw } from "vue-router";
-
-  
   export default [
     {
       path: "${camelToKebab(name)}",

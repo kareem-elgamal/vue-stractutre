@@ -68,6 +68,7 @@ import { i18nCode } from "./contexts/i18n.js"
 import { i18nConf } from "./contexts/i18n-config.js"
 import { routeCofig as routeConfigCode } from "./contexts/route-config.js"
 import { protectRouter } from "./contexts/protect-router.js"
+import { schema } from "./contexts/schema.js"
 export {
   storeCode,
   layoutCode,
@@ -77,5 +78,6 @@ export {
   i18nCode,
   i18nConf,
   routeConfigCode,
-  protectRouter
+  protectRouter,
+  schema,
 }
