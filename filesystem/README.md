@@ -79,29 +79,29 @@ Based on the `schema.js` above, running `npm run init-modules` will generate a d
 
 ```
 src/
-  modules/
-    module1/
-      components/
-        CompA.vue
-        CompB.vue
-      pages/
-        Home.vue
-        About.vue
-      store/
-        index.ts    // Pinia store for this module
-      i18n/
-        en.json    // i18n support if i18n: true
-      routes.ts    // Dynamic router setup
-    childModule1/
-      components/
-        ChildComp1.vue
-      pages/
-        ChildPage.vue
-      store/
-        index.ts
-      i18n/
-        en.json
-      routes.ts
+modules/
+├── module1/
+│   ├── components/
+│   │   ├── CompA.vue
+│   │   └── CompB.vue
+│   ├── pages/
+│   │   ├── Home.vue
+│   │   └── About.vue
+│   ├── store/
+│   │   └── index.ts        # Pinia store for this module
+│   ├── i18n/
+│   │   └── en.json         # i18n support if i18n: true
+│   └── routes.ts           # Dynamic router setup
+└── childModule1/
+    ├── components/
+    │   └── ChildComp1.vue
+    ├── pages/
+    │   └── ChildPage.vue
+    ├── store/
+    │   └── index.ts
+    ├── i18n/
+    │   └── en.json
+    └── routes.ts
 ```
 
 ---
