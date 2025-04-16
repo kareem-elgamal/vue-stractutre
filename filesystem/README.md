@@ -11,8 +11,6 @@ This package makes it easy to scaffold out complex Vue 3 project structures, sav
 - Supports generating **Pinia store** files, **i18n** localization files, dynamic **routing**, and **layouts**.
 - Simplifies the creation of complex nested modules and routes.
 - Built for Vue 3 projects, supporting TypeScript.
-- Customizable, with options to change file extensions, directory names, and more.
-
 ---
 
 ## **Installation**
@@ -69,7 +67,7 @@ This will:
 - Create the necessary directories for each module.
 - Generate `.vue` components inside the `components/` directory for each module.
 - Set up the Pinia store files (`index.ts`) for modules with `store: true`.
-- Configure i18n files (`en.json`) if `i18n: true` is defined.
+- Configure i18n files (`en.json` , `ar.json` ) if `i18n: true` is defined.
 - Automatically generate router files based on module names and nested routes.
 
 ---
@@ -151,41 +149,6 @@ You can customize the extensions of the generated files. For example, if you pre
 }
 ```
 
-This will generate `.jsx` files for components and pages.
-
-### **Customizing Directory Names**
-If you want to customize the default directory names (e.g., changing `components/` to `ui/`), you can modify your `schema.js` file to include a `directories` property:
-
-```javascript
-{
-  name: "dashboard",
-  components: ["DashboardComp", "Sidebar"],
-  page: ["Index"],
-  store: true,
-  directories: {
-    components: "ui",
-    pages: "views"
-  }
-}
-```
-
-This will generate the following structure:
-
-```
-src/
-  modules/
-    dashboard/
-      ui/
-        DashboardComp.vue
-        Sidebar.vue
-      views/
-        Index.vue
-      store/
-        index.ts
-```
-
----
-
 ## **Troubleshooting**
 
 ### **Common Issues**
@@ -199,9 +162,15 @@ If the tool isn’t working as expected, ensure all dependencies are installed b
 ```bash
 npm install
 ```
-
 #### Permission Issues
 If you encounter permission errors, ensure your terminal has sufficient write permissions for the directories.
 
 #### Invalid Schema Format
 Make sure your `schema.js` file is correctly formatted. If there are syntax errors, the tool will fail.
+
+#### Existing Router, Router Guard, or i18n Files
+Before running the tool, ensure that the following files are deleted from the `src` directory:
+- **Main Router File**: The tool will automatically generate a new router file.
+- **Router Guard File**: The tool will create a new router guard configuration.
+- **i18n Files**: Any existing i18n files should be removed, as the tool will generate them based on the schema.
+---
