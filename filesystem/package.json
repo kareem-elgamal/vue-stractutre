@@ -1,13 +1,12 @@
 {
   "name": "vue3-structure-builder",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "",
   "type": "module",
   "main": "index.js",
   "scripts": {
     "build": "rollup -c",
     "postinstall": "node postinstall.js"
-
   },
   "license": "MIT",
   "dependencies": {
@@ -22,7 +21,6 @@
     "@rollup/plugin-node-resolve": "^13.0.0",
     "rollup": "^3.0.0",
     "rollup-plugin-terser": "^7.0.0"
-    
   },
   "keywords": [
     "vue-modules",
@@ -40,10 +38,9 @@
     "vue-module-development"
   ],
   "files": [
-    "dist",   
+    "dist",
     "README.md",
     "LICENSE",
     "postinstall.js"
   ]
-  
 }
