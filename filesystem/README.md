@@ -174,3 +174,16 @@ Before running the tool, ensure that the following files are deleted from the `s
 - **Router Guard File**: The tool will create a new router guard configuration.
 - **i18n Files**: Any existing i18n files should be removed, as the tool will generate them based on the schema.
 ---
+#### Scripts Not Added to `package.json`
+If the `postinstall` script does not automatically add the required scripts to your `package.json`, you can add them manually:
+
+```json
+"scripts": {
+  "generate-str": "node node_modules/vue3-structure-builder/dist/main/index.js",
+  "out-schema": "node node_modules/vue3-structure-builder/dist/output-file/index.js"
+}
+```
+## **Contributing**
+We welcome contributions! If you'd like to improve the tool, feel free to fork the repository, make changes, and submit a pull request.
+
+---
